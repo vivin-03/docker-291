@@ -23,14 +23,16 @@ pipeline {
 
         stage('Login to DockerHub') {
             steps {
-                bat 'docker login -u USERNAME -p PASSWORD'
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    bat 'echo %PASS% | docker login -u %USER% --password-stdin'
+                }
             }
         }
 
         stage('Push Image') {
             steps {
-                bat 'docker tag myimage USERNAME/myimage'
-                bat 'docker push USERNAME/myimage'
+                bat 'docker tag myimage vivin0905/myimage'
+                bat 'docker push vivin0905/myimage'
             }
         }
     }
