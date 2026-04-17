@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USER = "akbaraliiii"
+        DOCKER_USER = "vivin0905"
         IMAGE_NAME = "docker-fat-app"
         TAG = "latest"
     }
@@ -22,7 +22,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/akbarali2k6/Docker_FAT_Akbar0292.git'
+                url: 'https://github.com/vivin-03/docker-291.git'
             }
         }
 
