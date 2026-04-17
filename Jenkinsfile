@@ -11,7 +11,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/vivin-03/docker-291.git'
+                git branch: 'main', url: 'https://github.com/vivin-03/docker-291.git'
             }
         }
 
